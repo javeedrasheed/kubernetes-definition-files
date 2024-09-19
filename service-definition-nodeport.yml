@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 80 # pod/container port
+    port: 80 # service port
+    nodePort: 30008 # exposed port outside
+  selector: # it is used to identify the pod(to map port 80 with - there might be many pod who r using port 80) by labels
+    app: myapp
+    type: front-end
+
+    #the creatiion of service is same for single pod , or multiple pods on single pod or multiple pods on multiple nodes.

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app=config
+
+data:       # in Config map we have data: instead of spec:
+  APP_COLOR: blue
+  APP_MODE: prod
+
+#this is the declarative way of making ConfigMaps
+#by definition.yml
+#--------------------------------------------
+
+#Imperative
+# kubectl create configmap
+# <config-name> --from-literal=<key>=<value
+
+# kubectl create configmap \
+#       app-config --from-literal=APP_COLOR=blue \
+#                  --from-literal=APP_MOD=prod
+
+#  we can also specify a file path for data
+
+#                   --from-file=<path-to-file>
+#       i-e   --from-file=app_config.properties

@@ -1,0 +1,15 @@
+#Pod Definition
+
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+    type:
+
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx

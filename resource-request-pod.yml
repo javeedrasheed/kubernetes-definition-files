@@ -1,0 +1,22 @@
+#Pod Definition
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 8080
+    resources:
+      requests:
+        memory: "1Gi" # default value is 512Gi for a container if not specified.
+        cpu: 1 # 1 = 1vcpu in cloud or 1 hyperthread. default value is also 1 if not specified
+
+# if a cpu in container exceeds its limits kubernets throttle it.
+# if memory exceeds it limits container will terminated.

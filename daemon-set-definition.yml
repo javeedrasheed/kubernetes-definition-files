@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: monitoring-daemon
+spec:
+  selector:
+    matchLabels:
+      app: monitoring-agent
+    template:
+      metadata:
+        labels:
+          app: monitoring-agent
+      spec:
+        containers:
+        - name: monitoring-agent
+          image: monitoring-agent
+# its almost exactly like ReplicaSet definition except
+# that the kind is a DaemonSet.
+#Ensure that the labels in the selector matches the ones
+# in the pod template. once ready create using kubectl command below
+# kubectl create -f daemon-set-definition.yml
+# to view the Daemonsets
+# kubectl get daemonsets

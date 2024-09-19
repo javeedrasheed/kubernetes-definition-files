@@ -1,0 +1,23 @@
+#Replication Controller
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp
+    type: front-end
+
+spec:  # Replication Controller Specs
+  template: # here the contents of pod-definition.yml comes except version and kind
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type:
+    spec:  # Pod Specs
+      containers:
+        - name: nginx-container
+          image: nginx
+
+  replicas: 3

@@ -1,0 +1,14 @@
+apiVersion:
+kind: Service
+metadata:
+  name: back-end
+
+spec:
+  type: ClusterIP #it is the default type if u didnt specify type it will be selected.
+  ports:
+  - targetPort: 80 
+    port: 80
+# to link the service to a set of pods we use selectors
+  selector: # copy the labels from pod-definition.yml
+    app: myapp
+    type: back-end

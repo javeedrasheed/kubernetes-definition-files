@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+
+
+# there are two ways to create name spaces.
+#1. using yml file
+  #  kubectl create -f namespace-dev.yml
+#2. using command line
+  #  kubectl create namespace dev
+
+# Switch to a specific namespace permanently wihout need of specifying again & again
+#here we are setting dev name space 
+
+#   kubectl config set-context $(kubectl config current-context) --namespace=dev
